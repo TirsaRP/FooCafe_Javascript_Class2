@@ -1,0 +1,20 @@
+
+#studentTable2{
+    width:90%;
+    font-size:1.5em;
+    border:1px solid red;
+ 
+}
+
+.content{
+    text-align:center;
+    padding:5px;
+    border:1px solid blue;
+}
+
+.info {
+    height:25px;
+    font-size:0.5em;
+    background-color:yellow;
+    border:5px solid green;
+}
