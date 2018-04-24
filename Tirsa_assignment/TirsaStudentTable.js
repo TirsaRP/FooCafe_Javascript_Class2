@@ -7,21 +7,21 @@ var studentObj = {                       //obj = {property:value}
         studentName: "Robert Johnson",
         education: "Psychology",
         city: "Malmö",
-        studentPicture: "image.jpeg"
+        studentPicture: "<img src='student1.jpg' width='150px'>"
     },
     2: {
         studentId: 12346,
         studentName: "Mary Howard",
         education: "Physics",
         city: "Malmö",
-        studentPicture: "image.jpeg"
+        studentPicture: "<img src='student2.jpg' width='150px'>"
     },
     3: {
         studentId: 12347,
-        studentName: "Patty Micheals",
+        studentName: "John Micheals",
         education: "Art History",
         city: "Malmö",
-        studentPicture: "image.jpeg"
+        studentPicture: "<img src='student3.jpg' width='150px'>"
     }
 };
 console.log(Object.values(studentObj));
@@ -31,7 +31,8 @@ studentTable.setAttribute("id", "studentTable2");
 document.body.appendChild(studentTable);
 
 var row1 = document.createElement("caption");                    //created <caption>
-row1.innerHTML = "Student Table 2";
+row1.setAttribute("id", "title");
+row1.innerHTML = "Student Table";
 document.getElementById("studentTable2").appendChild(row1);
 
 
@@ -59,21 +60,18 @@ function addToTable() {
         var rowN = document.createElement("tr");
         rowN.setAttribute("class", "info");
         document.getElementById("studentTable2").appendChild(rowN); //everytime you iterate through the object keys, add a row (3 keys = 3 rows)
-        
-        var student = studentObj[key];                      
-        for (property in student) {                                 //iterate through the properties of each object(student) within the studentObj
-            var rowNCell1 = rowN.insertCell(0);                     //create a new cell in the row
-            rowNCell1.innerHTML= student.studentId;                 //and make the innerHTML of each cell be equal to the value of each property
-            var rowNCell2 = rowN.insertCell(1);
-            rowNCell2.innerHTML= student.studentName;
-            var rowNCell3 = rowN.insertCell(2);
-            rowNCell3.innerHTML= student.education;
-            var rowNCell4 = rowN.insertCell(3);
-            rowNCell4.innerHTML= student.city;
-            var rowNCell5 = rowN.insertCell(4);
-            rowNCell5.innerHTML= student.studentPicture;
-        }
-        
+
+        var student = studentObj[key];                              //iterate through the properties of each object(student) within the studentObj
+        var rowNCell1 = rowN.insertCell(0);                     //create a new cell in the row
+        rowNCell1.innerHTML = student.studentId;                 //and make the innerHTML of each cell be equal to the value of each property
+        var rowNCell2 = rowN.insertCell(1);
+        rowNCell2.innerHTML = student.studentName;
+        var rowNCell3 = rowN.insertCell(2);
+        rowNCell3.innerHTML = student.education;
+        var rowNCell4 = rowN.insertCell(3);
+        rowNCell4.innerHTML = student.city;
+        var rowNCell5 = rowN.insertCell(4);
+        rowNCell5.innerHTML = student.studentPicture;
     }
 
 }
