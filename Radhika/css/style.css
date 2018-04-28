@@ -31,4 +31,14 @@ table th {
   border-left: 2px solid #D0E4F5;
 }
 
+input {
+    background-color:  #008CBA;; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 
