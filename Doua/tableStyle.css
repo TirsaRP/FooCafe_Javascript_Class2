@@ -10,7 +10,6 @@ table {
 
   font-family: 'Arial';
   margin: 25px auto;
-  margin: 0 auto;
   text-align: center;
   border-collapse: collapse;
   border: 1px solid #eee;
@@ -60,13 +59,12 @@ th.last {
 
 
 #imgStyle {
- width: 15%;
- float: left;
+ width: 10%;
  margin-right: 30px;   
 }
 
 
-#imgStyle img { 
-    border-radius: 60px;
+ img { 
+    border-radius: 40%;
 }
 
