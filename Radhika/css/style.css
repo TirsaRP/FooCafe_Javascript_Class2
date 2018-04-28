@@ -4,7 +4,7 @@ table {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
   width: 80%;
-  text-align: left;
+  text-align: center;
   border-collapse: collapse;
 }
 table td, table th {
@@ -30,17 +30,5 @@ table th {
   color: #FFFFFF;
   border-left: 2px solid #D0E4F5;
 }
-table th:first-child {
-  border-left: none;
-}
 
-button {
-    background-color:  #008CBA;; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
+
