@@ -58,8 +58,8 @@ for (var i = 0; i < student.length; i++){
     var td2 = document.createElement('td');
     var td3 = document.createElement('td');
     var div1 = document.createElement("div")
-div.setAttribute("id","imgStyle")
-document.body.appendChild(div);
+    div1.setAttribute("id","imgStyle")
+    document.body.appendChild(div1);
     var image = document.createElement("img");
     image.setAttribute("src", student[i].picture);
     image.setAttribute("width", "150");
