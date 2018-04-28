@@ -22,6 +22,17 @@ var rows = [{
 
 var html = "<table border='1|1'>";
 for (var i = 0; i < rows.length; i++) {
+    
+    
+    html+="<tr>";
+    html+="<th>id</th>";
+    html+="<th>name</th>";
+    html+="<th>education</th>";
+    html+="<th>city</th>";
+    html+="<th>picture</th>";
+
+    html+="</tr>";
+    
     html+="<tr>";
     html+="<td>"+rows[i].id+"</td>";
     html+="<td>"+rows[i].name+"</td>";
