@@ -1,4 +1,4 @@
- function GenerateTable() {
+    function GenerateTable() {
     //Build an array containing Student records.
     var Students = new Array();
     Students.push(["Student Id", "Name", "Education", "City", "Picture"]);
