@@ -20,6 +20,10 @@ table {
      0px 30px 20px rgba(0,0,0,0.05);
 }
 
+h1{
+    text-align: center;
+    color: #999;
+}
 
 tr:hover {
  background: #f4f4f4;
