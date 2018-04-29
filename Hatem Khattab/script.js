@@ -30,16 +30,18 @@ var students = [
     city: "Uppsala",
     pic: "./images/annica.jpg"
   }
-
-  
 ];
 
 function createStudents(arr) {
+  //check if the table with id students-table exist
+  if (document.querySelector("#students-table")){
+    return
+  }
   var table= document.createElement('table');
+  table.setAttribute('id','students-table')
   var header = document.createElement('tr')
   //write the header row
   for(var key in arr[0]){
-    console.log(key)
     header.innerHTML += `<th>${key.toUpperCase()}</th>`;
   }
   table.appendChild(header);
