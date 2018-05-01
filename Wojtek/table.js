@@ -18,11 +18,33 @@ const students = [
         picture: "https://drive.google.com/uc?id=1PKZG8Vgma-B4WWKFfXjRyeAtcxpgyBZu"
     }
 ];
+const teachers = [
+    {
+        name: "Teacher Pitt",
+        education: "General Medicine",
+        city: "Lund",
+        picture: "https://drive.google.com/uc?id=11wyYBJMlCpcZ8UbrYcMnzcqz5Ei_5hzp"
+    },
+    {
+        name: "Teacher Clooney",
+        education: "Engineering",
+        city: "Malmö",
+        picture: "https://drive.google.com/uc?id=1lqK0MS4X8pOgrVRhGwBJcMi3n7xiBl4j"
+    },
+    {
+        name: "Teacher Dempsey",
+        education: "Economy",
+        city: "Gutenberg",
+        picture: "https://drive.google.com/uc?id=1PKZG8Vgma-B4WWKFfXjRyeAtcxpgyBZu"
+    }
+];
 
 const container = createElementInElement('container', 'div', document.body);
-const table = createElementInElement('student-table', 'table', container);
+const studentTable = createElementInElement('student-table', 'table', container);
+const teacherTable = createElementInElement('teacher-table', 'table', container);
 
-addStudentsToTable(students, table);
+addRowsToTable(students, studentTable);
+addRowsToTable(teachers, teacherTable);
 
 /**
  * Adds a header to a html table
@@ -47,22 +69,22 @@ function addHeaderToTable(table, columnNames) {
  * @param {<table>} table The table html-element
  * @param {*} student 
  */
-function addStudentToTable(table, student){
+function addStudentToTable(table, student) {
     const row = document.createElement('tr');
 
-    for(const key in student){
+    for (const key in student) {
         const cell = document.createElement('td');
-        
-        if(key === 'picture'){
+
+        if (key === 'picture') {
             cell.appendChild(createImageElement(student[key], student['name']));
-        }else{
+        } else {
             cell.innerText = student[key];
         }
-        
+
         row.appendChild(cell);
     }
 
-    table.appendChild(row);    
+    table.appendChild(row);
 }
 
 /**
@@ -70,6 +92,8 @@ function addStudentToTable(table, student){
  * 
  * @param {String} src Url to the image file
  * @param {String} alt Description of image
+ * 
+ * @returns {<img>} The image element
  */
 function createImageElement(src, alt) {
     const image = document.createElement("img");
@@ -82,23 +106,32 @@ function createImageElement(src, alt) {
 }
 
 /**
- * Adds students to a html table
+ * Adds rows to a html table
  * 
- * @param {Object[]} students List of students, each object describes a student
- * @param {<table>} table The table to add the students to
+ * @param {Object[]} rows Rows with data to be rendered in the table
+ * @param {<table>} table The table to add the rows to
  */
-function addStudentsToTable(students, table) {
+function addRowsToTable(rows, table) {
     addHeaderToTable(table, ['Name', 'Education', 'City', 'Picture']);
 
-    students.forEach(student=>{
-        addStudentToTable(table, student);
+    rows.forEach(row => {
+        addStudentToTable(table, row);
     })
 }
 
-function createElementInElement(childElementClassName, childElementType, parentElement){
+/**
+ * Creates one child element inside a parent element
+ * 
+ * @param {String} childElementClassName CSS class name for child element
+ * @param {Object} childElementType 
+ * @param {Object} parentElement 
+ * 
+ * @returns The child element
+ */
+function createElementInElement(childElementClassName, childElementType, parentElement) {
     const childElement = document.createElement(childElementType);
     childElement.setAttribute('class', childElementClassName);
     parentElement.appendChild(childElement);
-    
+
     return childElement;
 }
