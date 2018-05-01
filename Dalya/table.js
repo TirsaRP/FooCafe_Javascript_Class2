@@ -15,12 +15,12 @@ function addTable() {
     heading[3] = "Student's City";
     heading[4] = "Student's Picture";
 
-    var stock = new Array();
-    stock[0] = new Array('S903922', "Adam", "IT", "London", "<img src = adam.jpg width=100>");
-    stock[1] = new Array("S203822", "Ali", "Computer Engineering", "Iran", "<img src = ali.jpg width=120>");
-    stock[2] = new Array("S984398", "Asia", "Teacher", "Qatar", "<img src = asia.jpg width= 150>");
-    stock[3] = new Array("S839737", "Mark", "Technical", "Swedish", "<img src = mark.jpg width =120>");
-    stock[4] = new Array("S792873", "Dave", "Civil Engineering.", "Swedish", "<img src = dave.jpg width=120>");
+    var students = new Array();
+    students[0] = new Array('S903922', "Adam", "IT", "London", "<img src = adam.jpg width=100>");
+    students[1] = new Array("S203822", "Ali", "Computer Engineering", "Iran", "<img src = ali.jpg width=120>");
+    students[2] = new Array("S984398", "Asia", "Teacher", "Qatar", "<img src = asia.jpg width= 150>");
+    students[3] = new Array("S839737", "Mark", "Technical", "Swedish", "<img src = mark.jpg width =120>");
+    students[4] = new Array("S792873", "Dave", "Civil Engineering.", "Swedish", "<img src = dave.jpg width=120>");
 
 
     /*let StudentImages = ['./ studentimages /adam.jpg', "./ studentimages /ali.jpg", "./ studentimages /asia.jpg",
@@ -38,15 +38,15 @@ function addTable() {
         tr.appendChild(th);
 
     }
-    for (i = 0; i < stock.length; i++) {
+    for (i = 0; i < students.length; i++) {
         var tr = document.createElement('TR');
-        for (j = 0; j < stock[i].length; j++) {
+        for (j = 0; j < students[i].length; j++) {
 
             var td = document.createElement('TD');
             if (j === 4) {
                 var img = document.createElement("IMG");
 
-                img.setAttribute("src", stock[i][j]);
+                img.setAttribute("src", students[i][j]);
 
                 img.setAttribute("width", "100");
 
@@ -59,7 +59,7 @@ function addTable() {
 
 
             table.appendChild(tr);
-            td.innerHTML = stock[i][j];
+            td.innerHTML = students[i][j];
 
             tr.appendChild(td);
 
