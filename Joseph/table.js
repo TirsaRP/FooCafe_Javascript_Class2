@@ -1,4 +1,4 @@
-var studentInfo = [
+var students = [
     {
         StudentID: "12334", 
         StudentName: "John Doe", 
@@ -23,8 +23,12 @@ var studentInfo = [
 ];
 
 
-
-function dynamicTable(array){
+/**
+ * The first half creates a table header and the second half the rest of the table...
+ * @param {Object[]} rows Table rows data
+ */
+//TODO: split this function into two, header & rest-of-table
+function renderTable(rows){
 
         var table = document.createElement('TABLE');
         document.body.appendChild(table);
@@ -33,7 +37,7 @@ function dynamicTable(array){
         table.appendChild(tableRow);
         
 
-        for (var key in array[0]){
+        for (var key in rows[0]){
             var heading = document.createElement('TH');
             var headingText = document.createTextNode(key);
             heading.appendChild(headingText);
@@ -41,19 +45,19 @@ function dynamicTable(array){
         }
     
   
-    for (var i = 0; i < array.length; i++){
+    for (var i = 0; i < rows.length; i++){
         
             var nextTableRow = document.createElement('TR');
             table.appendChild(nextTableRow);
             
-            for (var key in array[i]){
+            for (var key in rows[i]){
                 if (key == "StudentPic"){
                     var studentIMG = document.createElement('IMG');
-                    studentIMG.setAttribute("src", array[i][key]);
+                    studentIMG.setAttribute("src", rows[i][key]);
                     nextTableRow.appendChild(studentIMG);
                 } else {
                     var dataRow = document.createElement('TD');
-                    var dataText = document.createTextNode(array[i][key]);
+                    var dataText = document.createTextNode(rows[i][key]);
                     dataRow.appendChild(dataText);
                     nextTableRow.appendChild(dataRow);
                 }
@@ -64,5 +68,5 @@ function dynamicTable(array){
     
 }
 
-dynamicTable(studentInfo);
+renderTable(students);
 
