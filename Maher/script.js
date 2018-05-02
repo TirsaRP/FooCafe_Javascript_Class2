@@ -78,7 +78,7 @@ function studentListTable() {
   tblBody.appendChild(th5);
 
   //adding for loop, to take every student in the array
-  for (var i = 0; i < listOfStudents.length; i++) {
+  listOfStudents.forEach(student => {
     var row = document.createElement("tr");
     tblBody.appendChild(row);
 
@@ -88,22 +88,22 @@ function studentListTable() {
     var cell4 = document.createElement("td");
     var cell5 = document.createElement("td");
 
-    cell1.innerHTML = listOfStudents[i].id;
+    cell1.innerHTML = student.id;
     cell1.setAttribute("class", "style");
-    cell2.innerHTML = listOfStudents[i].name;
+    cell2.innerHTML = student.name;
     cell2.setAttribute("class", "style");
-    cell3.innerHTML = listOfStudents[i].education;
+    cell3.innerHTML = student.education;
     cell3.setAttribute("class", "style");
-    cell4.innerHTML = listOfStudents[i].city;
+    cell4.innerHTML = student.city;
     cell4.setAttribute("class", "style");
-    cell5.innerHTML = listOfStudents[i].picture;
+    cell5.innerHTML = student.picture;
 
     row.appendChild(cell1);
     row.appendChild(cell2);
     row.appendChild(cell3);
     row.appendChild(cell4);
     row.appendChild(cell5);
-  }
+  });
 }
 
 function addRow() {
