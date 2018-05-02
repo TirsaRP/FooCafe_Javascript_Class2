@@ -1,71 +1,92 @@
-function addTable() {
-    var myTableDiv = document.getElementById("div");
-    var table = document.createElement('table');
-    var tableBody = document.createElement('tbody');
+const students = [
 
+    {
+        ID: "196780",
+        name: "Adam",
+        educ: "IT",
+        city: "Kalmar",
+        picture: "<img src= 'adam.jpg'>"
+    },
+    {
+        ID: "1so334",
+        name: "Asia",
+        educ: "teacher",
+        city: "Malmö",
+        picture: "https://drive.google.com/uc?id=1PKZG8Vgma-B4WWKFfXjRyeAtcxpgyBZu"
+    },
+    {
+        ID: "13t867",
+        name: "Ali",
+        educ: "Engineering",
+        city: "Lund",
+        picture: "https://drive.google.com/uc?id=11wyYBJMlCpcZ8UbrYcMnzcqz5Ei_5hzp"
+    }
+
+];
+
+
+
+function studTable(studArray) {
+    //create table and added to the body
+
+    var table = document.createElement('table');
+    table.border = '1';
     document.body.appendChild(table);
 
-    table.border = '1';
-    table.appendChild(tableBody);
+    //create row and added to the table
+    var headerRow = document.createElement('tr');
 
-    var heading = new Array();
-    heading[0] = "Student's Id";
-    heading[1] = "Student's Name";
-    heading[2] = "Student's Education";
-    heading[3] = "Student's City";
-    heading[4] = "Student's Picture";
+    table.appendChild(headerRow);
 
-    var students = new Array();
-    students[0] = new Array('S903922', "Adam", "IT", "London", "<img src = adam.jpg width=100>");
-    students[1] = new Array("S203822", "Ali", "Computer Engineering", "Iran", "<img src = ali.jpg width=120>");
-    students[2] = new Array("S984398", "Asia", "Teacher", "Qatar", "<img src = asia.jpg width= 150>");
-    students[3] = new Array("S839737", "Mark", "Technical", "Swedish", "<img src = mark.jpg width =120>");
-    students[4] = new Array("S792873", "Dave", "Civil Engineering.", "Swedish", "<img src = dave.jpg width=120>");
+    //use for...in loop to display the array elements
+    //key = studID,studname,studEduc,studCity,studPic
+    for (var key in studArray[0]) {
 
+        var header = document.createElement('th');
 
-    /*let StudentImages = ['./ studentimages /adam.jpg', "./ studentimages /ali.jpg", "./ studentimages /asia.jpg",
-        , "./ studentimages /mark.jpg", "./ studentimages /dave.jpg"]*/
-    // let studentImages = ["./img/benhur.jpg", "./img/twilight.jpg", "./img/mobydick.jpg", "./img/thegreatgatsby.jpg", "./img/hamlet.jpg"]
+        var headerText = document.createTextNode(key); //the header will contain the keys.
 
+        header.appendChild(headerText);
 
-    var tr = document.createElement('TR');
-    tableBody.appendChild(tr);
-    for (i = 0; i < heading.length; i++) {
-        var th = document.createElement('TH')
-        th.style.backgroundColor = 'lightblue';
-
-        th.appendChild(document.createTextNode(heading[i]));
-        tr.appendChild(th);
+        table.appendChild(header);
 
     }
-    for (i = 0; i < students.length; i++) {
-        var tr = document.createElement('TR');
-        for (j = 0; j < students[i].length; j++) {
 
-            var td = document.createElement('TD');
-            if (j === 4) {
-                var img = document.createElement("IMG");
+    //add students data to the table
+    for (var i = 0; i < studArray.length; i++) {
 
-                img.setAttribute("src", students[i][j]);
+        var studInfoRow = document.createElement('tr');
 
-                img.setAttribute("width", "100");
-
-                img.setAttribute("height", "100");
+        table.appendChild(studInfoRow);
 
 
 
-                td.appendChild(img);
+        for (var key in studArray[i]) {
+
+            if (key == "pictuter") {
+
+                var studImg = document.createElement('img');
+
+
+                studImg.setAttribute("src", array[i][key]);
+
+                studInfoRow.appendChild(studImg);
+
+            } else {
+
+                var dataRow = document.createElement('td');
+
+                var dataText = document.createTextNode(studArray[i][key]);
+
+                dataRow.appendChild(dataText);
+
+                studInfoRow.appendChild(dataRow);
+
             }
 
-
-            table.appendChild(tr);
-            td.innerHTML = students[i][j];
-
-            tr.appendChild(td);
-
         }
+
     }
+
 }
-
-
-addTable();
+studTable(students);
