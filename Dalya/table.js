@@ -3,90 +3,61 @@ const students = [
     {
         ID: "196780",
         name: "Adam",
-        educ: "IT",
+        eduction: "IT",
         city: "Kalmar",
-        picture: "<img src= 'adam.jpg'>"
+        picture: "adam.jpg"
     },
     {
         ID: "1so334",
         name: "Asia",
-        educ: "teacher",
+        eduction: "teacher",
         city: "Malmö",
-        picture: "https://drive.google.com/uc?id=1PKZG8Vgma-B4WWKFfXjRyeAtcxpgyBZu"
+        picture: "asia.jpg"
     },
     {
         ID: "13t867",
-        name: "Ali",
-        educ: "Engineering",
+        name: "Dave",
+        eduction: "Engineering",
         city: "Lund",
-        picture: "https://drive.google.com/uc?id=11wyYBJMlCpcZ8UbrYcMnzcqz5Ei_5hzp"
+        picture: "dave.jpg"
     }
 
 ];
 
 
-
-function studTable(studArray) {
-    //create table and added to the body
+function createStudents(studArray) {
 
     var table = document.createElement('table');
+
     table.border = '1';
+
     document.body.appendChild(table);
 
-    //create row and added to the table
-    var headerRow = document.createElement('tr');
+    var header = document.createElement('tr')
 
-    table.appendChild(headerRow);
-
-    //use for...in loop to display the array elements
-    //key = studID,studname,studEduc,studCity,studPic
     for (var key in studArray[0]) {
 
-        var header = document.createElement('th');
-
-        var headerText = document.createTextNode(key); //the header will contain the keys.
-
-        header.appendChild(headerText);
-
-        table.appendChild(header);
+        header.innerHTML += `<th>${key}</th>`;
 
     }
 
-    //add students data to the table
-    for (var i = 0; i < studArray.length; i++) {
+    table.appendChild(header);
 
-        var studInfoRow = document.createElement('tr');
+    for (let i = 0; i < studArray.length; i++) {
 
-        table.appendChild(studInfoRow);
+        var row = document.createElement('tr');
 
+        row.innerHTML = `<td>${studArray[i].id}</td>
 
+                     <td>${studArray[i].name}</td>
 
-        for (var key in studArray[i]) {
+                     <td>${studArray[i].education}</td>
 
-            if (key == "pictuter") {
+                     <td>${studArray[i].city}</td>
 
-                var studImg = document.createElement('img');
+                     <td><img src=${studArray[i].pic}></td>`;
 
-
-                studImg.setAttribute("src", array[i][key]);
-
-                studInfoRow.appendChild(studImg);
-
-            } else {
-
-                var dataRow = document.createElement('td');
-
-                var dataText = document.createTextNode(studArray[i][key]);
-
-                dataRow.appendChild(dataText);
-
-                studInfoRow.appendChild(dataRow);
-
-            }
-
-        }
+        table.appendChild(row);
 
     }
-
 }
-studTable(students);
