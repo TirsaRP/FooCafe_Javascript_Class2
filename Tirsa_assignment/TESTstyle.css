@@ -1,0 +1,25 @@
+.table{
+    width:90%;
+    border:1px solid;
+    border-collapse:collapse;
+    background-color:rgb(206, 206, 206); 
+}
+
+.captionTitle{
+    font-size:3em;
+    font-weight: bold;
+    padding:25px;
+    text-decoration:underline;
+}
+.headerValues{
+    font-size:2em;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align:center;
+    padding:5px;
+    border:2.5px solid red;
+}
+td{
+    font-size:2.5em;
+    border:1px solid black;
+    text-align: center;
+}
