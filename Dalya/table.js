@@ -26,22 +26,20 @@ const students = [
 
 
 function createStudents(studArray) {
-
+//create table
     var table = document.createElement('table');
-
     table.border = '1';
-
     document.body.appendChild(table);
-
-    var header = document.createElement('tr')
-
+    
+//create header
+    var header = document.createElement('tr');
     for (var key in studArray[0]) {
 
         header.innerHTML += `<th>${key}</th>`;
 
     }
-
     table.appendChild(header);
+    
 
     for (let i = 0; i < studArray.length; i++) {
 
