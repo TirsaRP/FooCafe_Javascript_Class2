@@ -111,7 +111,7 @@ function addRow() {
   var sName = document.getElementById("sname").value;
   var sCity = document.getElementById("scity").value;
   var sEducation = document.getElementById("seducation").value;
-  var sPic = document.getElementById("spic").value;
+  var sPic = document.getElementById("spic").value;                 //TODO: this is how you get the file user selected. Uploading it to the server is a different story...
 
   var tbl = document.getElementsByTagName("table")[0];
   var newRow = tbl.insertRow(listOfStudents.length);
