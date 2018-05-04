@@ -24,7 +24,7 @@ var studentArray = [                       //array of objects= [{},{},{}];
         studentPicture: "<img src='student3.jpg' width='150px'>"
     }
 ];
-var i = 0;
+// var i = 0;
 
 console.log(Object.values(studentArray));
 
@@ -42,7 +42,7 @@ function createTableContainer(array) {                       //this function cre
     table.appendChild(caption)
     let captionText = caption.innerHTML = "Table";
 
-    for (const prop in array[i]) {                         //creates a <th> from each property
+    for (const prop in array[0]) {                         //creates a <th> from each property
         let header = document.createElement("th");
         header.setAttribute("class", "headerValues");
         header.innerHTML = prop;
@@ -50,16 +50,15 @@ function createTableContainer(array) {                       //this function cre
         //console.log(prop);
     };
 
-    for (const object in array) {                        //creates rows for each object in the array with <td> for each property value 
+    for (const object of array) {                        //creates rows for each object in the array with <td> for each property value 
         let row = document.createElement("tr");
         row.setAttribute("class", "newRow");
         table.appendChild(row);
 
-
-        for (const prop in array[i]) {                  //NEW ISSUE: only shows the first object's values
+        for (const prop in object) {                  //NEW ISSUE: only shows the first object's values
             let tBody = document.createElement("td");
             tBody.setAttribute("class", "property");
-            tBody.innerHTML = array[i][prop];
+            tBody.innerHTML = object[prop];
             row.appendChild(tBody);
         };
     };
