@@ -25,72 +25,97 @@ var studentArray = [                       //array of objects= [{},{},{}];
     }
 ];
 var i = 0;
+
 console.log(Object.values(studentArray));
 
 function createTableContainer(array) {                       //this function creates a div, a table, and a caption element
-    let container = document.createElement("div")           //{ class: "box" });
-    container.setAttribute("class", "box"); 
+    let container = document.createElement("div")
+    container.setAttribute("class", "box");
     document.body.appendChild(container);
 
-    let table = document.createElement("table")             //{ class: "table" });
+    let table = document.createElement("table")
     table.setAttribute("class", "table");
     container.appendChild(table);
 
-    let caption = document.createElement("caption")        //{ class: "captionTitle" });
+    let caption = document.createElement("caption")
     caption.setAttribute("class", "captionTitle");
     table.appendChild(caption)
     let captionText = caption.innerHTML = "Table";
 
-    for (prop in array[i]) {                         //creates a th from each property
+    for (const prop in array[i]) {                         //creates a <th> from each property
         let header = document.createElement("th");
         header.setAttribute("class", "headerValues");
         header.innerHTML = prop;
         table.appendChild(header);
+        //console.log(prop);
     };
-    for (let i = 0; i < array.length; i++) {
+
+    for (const object in array) {                        //creates rows for each object in the array with <td> for each property value 
         let row = document.createElement("tr");
         row.setAttribute("class", "newRow");
-        for(var key in array){
-        row.innerHTML =                         //ISSUE: when i use prop it gives me the value but of only the last property, everything else doesn't work
-                                                // i want output to be the property values. Without  specifying property names, so it could be used with multiple arrays
-                    `<td>${array[i][0]}</td>
-                    <td>${array[i][prop]}</td>                             
-                    <td>${array[i].key}</td>
-                    <td>${array[i][prop][3]}</td>
-                    <td>${array[i].studentPicture}</td>`; 
         table.appendChild(row);
-    };
+
+
+        for (const prop in array[i]) {                  //NEW ISSUE: only shows the first object's values
+            let tBody = document.createElement("td");
+            tBody.setAttribute("class", "property");
+            tBody.innerHTML = array[i][prop];
+            row.appendChild(tBody);
+        };
     };
 };
+    /*for (const prop in array) {
+                                                 //ISSUE: when i use prop it gives me the value but of only the last property, everything else doesn't work
+                                                 // i want output to be the property values. Without  specifying property names, so it could be used with multiple arrays
+
+        row.innerHTML = <td>${array[i][prop]}</td>;                            
+                            `<td>${array[i][0]}</td>
+                            <td>${array[i][prop]}</td>                             
+                            <td>${array[i][1]}</td>
+                            <td>${array[i][prop]}</td>
+                            <td>${array[i].studentPicture}</td>`;
+                        table.appendChild(row); 
+    };    */
+
+
 
 createTableContainer(studentArray);
+//createHeader(studentArray);
+//createRowAndTd(studentArray);
+
+
 
 const familyArray = [
-    {member: "mom",
-    age:32,
-    occupation:"student",
-    birthdate: "XX/XX/86",
-    favColor:"blue"
+    {
+        member: "mom",
+        age: 32,
+        occupation: "student",
+        birthdate: "XX/XX/86",
+        favColor: "blue"
     },
-    {member: "dad",
-    age:33,
-    occupation:"consultant",
-    birthdate:"XX/XX/85",
-    favColor:"orange"
+    {
+        member: "dad",
+        age: 33,
+        occupation: "consultant",
+        birthdate: "XX/XX/85",
+        favColor: "orange"
     },
-    {member: "son",
-    age:5,
-    occupation:"student",
-    birthdate:"XX/XX/13",
-    favColor:"red"
+    {
+        member: "son",
+        age: 5,
+        occupation: "student",
+        birthdate: "XX/XX/13",
+        favColor: "red"
     },
-    {member: "daughter",
-    age:2,
-    occupation:"student",
-    birthdate:"XX/XX/15",
-    favColor:"purple"
+    {
+        member: "daughter",
+        age: 2,
+        occupation: "student",
+        birthdate: "XX/XX/15",
+        favColor: "purple"
     }
 ];
 
 createTableContainer(familyArray);
-
+//createHeader(familyArray);
+//createRowAndTd(familyArray);
