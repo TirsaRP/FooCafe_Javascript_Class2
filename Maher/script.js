@@ -107,11 +107,11 @@ function createStudentsTable() {
 }
 
 function addStudent() {
-  var id = document.querySelector(".id");
-  var name = document.querySelector(".name");
-  var city = document.querySelector(".city");
-  var education = document.querySelector(".education");
-  var pic = document.querySelector(".pic"); //TODO: this is how you get the file user selected. Uploading it to the server is a different story...
+  var id = document.querySelector("#id").value;
+  var name = document.querySelector("#name").value;
+  var city = document.querySelector("#city").value;
+  var education = document.querySelector("#education").value;
+  var pic = document.querySelector("#pic").value; //TODO: this is how you get the file user selected. Uploading it to the server is a different story...
 
   var tbl = document.getElementsByTagName("table")[0];
   var newRow = tbl.insertRow(listOfStudents.length);
@@ -142,7 +142,7 @@ function addStudent() {
 }
 
 /*
-function addRow(){
+function addStudent(){
         var id = document.getElementById("id").value;
         var sname= document.getElementById("sname").value;
          var scity = document.getElementById("scity").value;
