@@ -4,23 +4,19 @@
 body {
   background-color: rgb(255, 255, 255);
 }
-
 td {
   padding: 25px;
   border: 3px solid rgb(75, 73, 72);
   text-align: center;
 }
-
 table {
   margin: auto;
 }
-
 img {
   width: 100px;
   border-style: solid;
   border-color: rgb(75, 73, 72);
 }
-
 .style {
   font-family: playfair display;
   font-style: italic;
@@ -29,3 +25,4 @@ img {
 .heading {
   font-family: gugi;
 }
+
