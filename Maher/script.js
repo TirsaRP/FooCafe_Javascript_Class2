@@ -38,7 +38,7 @@ var listOfStudents = [
 ];
 
 //creating a function
-function studentListTable() {
+function createStudentsTable() {
   // get the reference for the body
   var body = document.getElementsByTagName("body")[0];
 
@@ -106,12 +106,12 @@ function studentListTable() {
   });
 }
 
-function addRow() {
-  var id = document.getElementById("id").value;
-  var sName = document.getElementById("sname").value;
-  var sCity = document.getElementById("scity").value;
-  var sEducation = document.getElementById("seducation").value;
-  var sPic = document.getElementById("spic").value;                 //TODO: this is how you get the file user selected. Uploading it to the server is a different story...
+function addStudent() {
+  var id = document.querySelector(".id");
+  var name = document.querySelector(".name");
+  var city = document.querySelector(".city");
+  var education = document.querySelector(".education");
+  var pic = document.querySelector(".pic"); //TODO: this is how you get the file user selected. Uploading it to the server is a different story...
 
   var tbl = document.getElementsByTagName("table")[0];
   var newRow = tbl.insertRow(listOfStudents.length);
@@ -124,20 +124,20 @@ function addRow() {
 
   cell1.innerHTML = id;
   cell1.setAttribute("class", "style");
-  cell2.innerHTML = sName;
+  cell2.innerHTML = name;
   cell2.setAttribute("class", "style");
-  cell3.innerHTML = sCity;
+  cell3.innerHTML = city;
   cell3.setAttribute("class", "style");
-  cell4.innerHTML = sEducation;
+  cell4.innerHTML = education;
   cell4.setAttribute("class", "style");
   cell5.innerHTML = "<img src='./pics/studentsponge1.jpg' />";
 
   listOfStudents.push({
     id: id,
-    name: sName,
-    education: sEducation,
-    city: sCity,
-    picture: sPic
+    name: name,
+    education: education,
+    city: city,
+    picture: pic
   });
 }
 
