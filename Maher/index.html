@@ -1,44 +1,35 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-
   <title>dynamic table</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-
   <link rel="stylesheet" href="./style.css">
-
-
 </head>
 
-<body onload=studentListTable(listOfStudents);>
-
+<body onload=createStudentsTable(listOfStudents);>
   student's id:
   <input type="text" name="id" id="id" />
   <br/>
   <br/> student's name:
-  <input type="text" name="name" id="sname" />
+  <input type="text" name="name" id="name" />
   <br/>
   <br/> student's city:
-  <input type="text" name="city" id="scity" />
+  <input type="text" name="city" id="city" />
   <br/>
   <br/> student's education:
-  <input type="text" name="education" id="seducation" />
+  <input type="text" name="education" id="education" />
   <br/>
   <br/> student's picture:
   <!-- <input type="text" name="spic" id="spic" /> -->
-  <input type="file" name="pic" id="spic">
+  <input type="file" name="pic" id="pic">
   <br/>
   <br/>
-
-  <button onclick="addRow();"> Add student</button>
+  <button onclick="addStudent();"> Add student</button>
   <br/>
   <br/>
-
-
 
   <script src="./script.js"></script>
 </body>
